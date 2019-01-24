@@ -22,8 +22,8 @@ export default class Map extends Component {
   componentDidMount() {
     // @NOTE: MAKE SURE ARRAY IS [LONGITUDE, LATITUDE]
     const bounds = [
-      [-58.103795, -9.293554], //southwest
-      [-50.242182, -0.841550] //northeast
+      [-58.503795, -16.293554], //southwest
+      [-50.242182, -8.841550] //northeast
     ]
 
     this.map = new mapboxgl.Map({
