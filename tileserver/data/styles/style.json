@@ -1,56 +1,14 @@
 {
     "version": 8,
-    "name": "Matawai-offline",
+    "name": "Xingu",
     "metadata": {
         "mapbox:autocomposite": true,
         "mapbox:type": "template",
-        "mapbox:groups": {
-            "caf1759e45fe9e11495844ca31510487": {
-                "name": "Saramacca contours",
-                "collapsed": true
-            },
-            "13858cd23e3db72b0b9b88fae1cced35": {
-                "name": "Saramacca hydrology",
-                "collapsed": true
-            },
-            "2f8f6af9ccf8c48812d5fd6bcf3ac612": {
-                "name": "Saramacca landscape",
-                "collapsed": true
-            },
-            "ee9a8381f49c3b765b1b40fb26ebfb5f": {
-                "name": "Watershed outline",
-                "collapsed": true
-            },
-            "ed598a781d972673f94190b55bc67f7a": {
-                "name": "Suriname labels",
-                "collapsed": true
-            },
-            "b3ec9208f2fc6cbf516152336767f47a": {
-                "name": "Railroad",
-                "collapsed": true
-            },
-            "62532b06c8a1509d7896be27f6639e77": {
-                "name": "Suriname roads",
-                "collapsed": true
-            },
-            "ff6ecea996170a19af9d0b4158ce4c35": {
-                "name": "Saramacca points",
-                "collapsed": true
-            },
-            "71339867bd3310669a17b8293c89e3b8": {
-                "name": "Saramacca labels",
-                "collapsed": true
-            },
-            "f47e3f4710944aaae6f68203545dd913": {
-                "name": "protected areas",
-                "collapsed": true
-            }
-        },
         "mapbox:trackposition": false,
         "mapbox:sdk-support": {"js": "0.45.0"}
     },
-    "center": [-56.673951380695485, 4.4468573791582315],
-    "zoom": 6.646314497338914,
+    "center": [-53.893105476538096, -12.90456102705977],
+    "zoom": 13.427170663347106,
     "bearing": -174.7253487499508,
     "pitch": 7.999999999999994,
     "light": {"anchor": "viewport"},
@@ -66,919 +24,311 @@
         {
             "id": "background",
             "type": "background",
-            "layout": {},
-            "paint": {"background-color": "hsl(0, 0%, 56%)"}
+            "paint": {"background-color": "#8f8f8f"}
         },
         {
-            "id": "south america polygon",
+            "id": "xingu-cuenca-cobertura",
             "type": "fill",
             "source": "composite",
-            "source-layer": "SouthAmerica_smooth",
+            "source-layer": "Xingu_cuenca_cobertura_2014",
+            "minzoom": 7,
             "layout": {},
             "paint": {
-                "fill-color": {
-                    "base": 1,
-                    "stops": [
-                        [9, "hsl(109, 43%, 92%)"],
-                        [11, "hsl(109, 40%, 76%)"]
-                    ]
-                },
-                "fill-outline-color": "hsl(0, 0%, 61%)"
-            }
-        },
-        {
-            "id": "saramacca-dem-1yl4d4",
-            "type": "fill-extrusion",
-            "source": "composite",
-            "source-layer": "Saramacca_DEM",
-            "layout": {},
-            "paint": {
-                "fill-extrusion-height": [
-                    "interpolate",
-                    ["linear"],
-                    ["get", "gridcode"],
-                    3,
-                    0,
-                    9,
-                    600
-                ],
-                "fill-extrusion-opacity": [
-                    "interpolate",
-                    ["linear"],
-                    ["zoom"],
-                    1,
-                    0,
-                    12,
-                    0.53
-                ],
-                "fill-extrusion-color": [
-                    "interpolate",
-                    ["linear"],
-                    ["get", "gridcode"],
-                    1,
-                    "#1b7837",
+                "fill-outline-color": "hsla(0, 0%, 0%, 0)",
+                "fill-color": [
+                    "step",
+                    ["get", "GRIDCODE"],
+                    "hsl(0, 100%, 50%)",
                     2,
-                    "#5aae61",
+                    "hsl(58, 83%, 54%)",
                     3,
-                    "#a6dba0",
+                    "hsl(40, 100%, 40%)",
                     4,
-                    "#d9f0d3",
+                    "hsl(72, 68%, 72%)",
                     5,
-                    "#f6e8c3",
+                    "hsl(157, 100%, 28%)",
                     6,
-                    "#dfc27d",
+                    "hsl(79, 100%, 33%)",
                     7,
-                    "#bf812d",
+                    "hsl(79, 100%, 42%)",
                     8,
-                    "hsl(330, 25%, 38%)",
+                    "hsl(333, 33%, 68%)",
                     9,
-                    "hsl(0, 0%, 100%)"
+                    "hsl(57, 41%, 57%)",
+                    10,
+                    "hsl(45, 52%, 60%)",
+                    11,
+                    "hsl(28, 59%, 62%)",
+                    12,
+                    "#99c7ff"
                 ]
             }
         },
         {
-            "id": "saramacca-dem-a2027z copy",
-            "type": "fill-extrusion",
+            "id": "xingu-cuenca-drenagem",
+            "type": "line",
             "source": "composite",
-            "source-layer": "Saramacca_DEM",
-            "filter": ["in", "$type", "LineString", "Point", "Polygon"],
+            "source-layer": "Xingu_cuenca_drenagem",
+            "minzoom": 8,
             "layout": {"visibility": "none"},
             "paint": {
-                "fill-extrusion-opacity": [
-                    "interpolate",
-                    ["linear"],
-                    ["zoom"],
-                    1,
-                    0,
-                    12,
-                    0.53
-                ],
-                "fill-extrusion-color": [
-                    "interpolate",
-                    ["linear"],
-                    ["get", "gridcode"],
-                    1,
-                    "hsl(138, 63%, 29%)",
-                    2,
-                    "hsl(125, 34%, 52%)",
-                    3,
-                    "hsl(114, 45%, 74%)",
-                    4,
-                    "hsl(108, 49%, 88%)",
-                    5,
-                    "hsl(44, 74%, 86%)",
-                    6,
-                    "hsl(42, 60%, 68%)",
-                    7,
-                    "hsl(35, 62%, 46%)",
-                    8,
-                    "hsl(330, 25%, 38%)"
-                ],
-                "fill-extrusion-height": [
-                    "interpolate",
-                    ["linear"],
-                    ["get", "gridcode"],
-                    3,
-                    0,
-                    8,
-                    600
-                ]
-            }
-        },
-        {
-            "id": "saramacca-dem-a2027z",
-            "type": "fill",
-            "source": "composite",
-            "source-layer": "Saramacca_DEM",
-            "layout": {"visibility": "none"},
-            "paint": {
-                "fill-color": {
-                    "base": 1,
-                    "type": "exponential",
-                    "property": "gridcode",
-                    "stops": [
-                        [1, "#1b7837"],
-                        [2, "#5aae61"],
-                        [3, "#a6dba0"],
-                        [4, "#d9f0d3"],
-                        [5, "#f6e8c3"],
-                        [6, "#dfc27d"],
-                        [7, "#bf812d"],
-                        [8, "#784860"]
-                    ]
-                },
-                "fill-opacity": {"base": 1, "stops": [[10, 0], [12, 0.53]]}
-            }
-        },
-        {
-            "id": "suriname-districts copy",
-            "type": "fill",
-            "source": "composite",
-            "source-layer": "Suriname_Districts",
-            "layout": {"visibility": "none"},
-            "paint": {"fill-color": "hsl(128, 37%, 84%)"}
-        },
-        {
-            "id": "suriname-geomorphology-dryi58",
-            "type": "fill",
-            "source": "composite",
-            "source-layer": "Suriname_Geomorphology",
-            "layout": {"visibility": "visible"},
-            "paint": {
-                "fill-color": {
-                    "base": 1,
-                    "type": "categorical",
-                    "property": "CODE",
-                    "stops": [
-                        [1, "hsla(28, 55%, 48%, 0.49)"],
-                        [2, "hsla(50, 71%, 82%, 0.51)"],
-                        [3, "hsla(221, 79%, 86%, 0.56)"],
-                        [4, "hsla(0, 4%, 100%, 0.51)"],
-                        [5, "hsla(128, 85%, 24%, 0.36)"]
-                    ],
-                    "default": "hsl(0, 0%, 0%)"
-                },
-                "fill-opacity": {"base": 1, "stops": [[2, 0], [7, 0.8], [9, 0]]}
-            }
-        },
-        {
-            "id": "suriname-protectedareas copy",
-            "type": "fill",
-            "metadata": {"mapbox:group": "f47e3f4710944aaae6f68203545dd913"},
-            "source": "composite",
-            "source-layer": "Suriname_ProtectedAreas",
-            "layout": {},
-            "paint": {
-                "fill-color": "hsl(93, 74%, 37%)",
-                "fill-opacity": {
-                    "base": 1,
-                    "stops": [[5, 0], [7, 0.3], [11, 0.3], [11.5, 0]]
-                }
-            }
-        },
-        {
-            "id": "suriname-protectedareas",
-            "type": "line",
-            "metadata": {"mapbox:group": "f47e3f4710944aaae6f68203545dd913"},
-            "source": "composite",
-            "source-layer": "Suriname_ProtectedAreas",
-            "layout": {},
-            "paint": {
-                "line-opacity": {
-                    "base": 1,
-                    "stops": [[5, 0], [7, 1], [11, 1], [11.5, 0]]
-                },
-                "line-color": "hsl(142, 74%, 24%)",
-                "line-width": 0.25
-            }
-        },
-        {
-            "id": "suriname-districts",
-            "type": "line",
-            "source": "composite",
-            "source-layer": "Suriname_Districts",
-            "layout": {},
-            "paint": {
-                "line-color": "hsl(314, 90%, 41%)",
-                "line-opacity": {"base": 1, "stops": [[5, 0], [7, 1]]},
-                "line-dasharray": [4, 6],
-                "line-width": {
-                    "base": 1,
-                    "stops": [[0, 0], [7, 1], [9, 1], [12, 2]]
-                }
-            }
-        },
-        {
-            "id": "rail-road-casing",
-            "type": "line",
-            "metadata": {"mapbox:group": "b3ec9208f2fc6cbf516152336767f47a"},
-            "source": "composite",
-            "source-layer": "Suriname_Railroad",
-            "layout": {},
-            "paint": {
-                "line-color": "hsl(0, 0%, 0%)",
-                "line-dasharray": [1, 1],
-                "line-width": 2.5,
-                "line-opacity": {"base": 1, "stops": [[9, 0], [11, 1]]}
-            }
-        },
-        {
-            "id": "rail",
-            "type": "line",
-            "metadata": {"mapbox:group": "b3ec9208f2fc6cbf516152336767f47a"},
-            "source": "composite",
-            "source-layer": "Suriname_Railroad",
-            "layout": {},
-            "paint": {
-                "line-color": "hsl(0, 0%, 62%)",
-                "line-width": 2.1,
-                "line-opacity": {"base": 1, "stops": [[9, 0], [11, 1]]}
-            }
-        },
-        {
-            "id": "suriname-hydrology",
-            "type": "fill",
-            "source": "composite",
-            "source-layer": "Suriname_Hydrology",
-            "layout": {},
-            "paint": {
-                "fill-color": {
-                    "base": 1,
-                    "stops": [
-                        [6, "hsl(244, 48%, 55%)"],
-                        [10, "hsl(183, 47%, 66%)"],
-                        [22, "hsl(183, 47%, 66%)"]
-                    ]
-                },
-                "fill-outline-color": {
-                    "base": 1,
-                    "stops": [
-                        [6, "hsl(244, 48%, 55%)"],
-                        [10, "hsl(183, 47%, 66%)"]
-                    ]
-                },
-                "fill-opacity": {"base": 1, "stops": [[0, 0], [3, 0], [4, 1]]}
-            }
-        },
-        {
-            "id": "water",
-            "type": "fill",
-            "source": "composite",
-            "source-layer": "water",
-            "layout": {"visibility": "none"},
-            "paint": {"fill-color": "hsl(244, 48%, 55%)", "fill-opacity": 1}
-        },
-        {
-            "id": "contours",
-            "type": "line",
-            "source": "composite",
-            "source-layer": "Saramacca_Contours_50m",
-            "layout": {"visibility": "none"},
-            "paint": {
-                "line-opacity": {
-                    "base": 1,
-                    "stops": [[5, 0], [8, 0.2], [12, 0.15]]
-                },
-                "line-color": "hsl(0, 0%, 0%)",
-                "line-width": {
-                    "base": 1,
-                    "stops": [[0, 0.1], [10, 0.2], [12, 1]]
-                }
-            }
-        },
-        {
-            "id": "contours-smaller",
-            "type": "line",
-            "metadata": {"mapbox:group": "caf1759e45fe9e11495844ca31510487"},
-            "source": "composite",
-            "source-layer": "Saramacca_Contours_50m",
-            "filter": ["!in", "Contour", 200, 400, 50, 600, 800],
-            "layout": {},
-            "paint": {
-                "line-opacity": {
-                    "base": 1,
-                    "stops": [[5, 0], [7, 0], [9, 0.05], [12, 0.1]]
-                },
-                "line-color": "hsl(0, 0%, 0%)",
-                "line-width": {
-                    "base": 1,
-                    "stops": [[0, 0.1], [10, 0.2], [12, 1]]
-                }
-            }
-        },
-        {
-            "id": "contours-main",
-            "type": "line",
-            "metadata": {"mapbox:group": "caf1759e45fe9e11495844ca31510487"},
-            "source": "composite",
-            "source-layer": "Saramacca_Contours_50m",
-            "filter": ["in", "Contour", 200, 400, 50, 600, 800],
-            "layout": {},
-            "paint": {
-                "line-opacity": {
-                    "base": 1,
-                    "stops": [[7, 0], [9, 0.1], [11, 0.15], [12, 0.25]]
-                },
-                "line-color": "hsl(0, 0%, 0%)",
-                "line-width": {
-                    "base": 1,
-                    "stops": [[0, 0.1], [10, 0.2], [12, 1]]
-                }
-            }
-        },
-        {
-            "id": "saramacca-plantations",
-            "type": "fill",
-            "metadata": {"mapbox:group": "2f8f6af9ccf8c48812d5fd6bcf3ac612"},
-            "source": "composite",
-            "source-layer": "Saramacca_Plantations",
-            "layout": {},
-            "paint": {
-                "fill-color": "hsl(105, 76%, 24%)",
-                "fill-opacity": {"base": 1, "stops": [[9, 0], [11, 0.6]]}
-            }
-        },
-        {
-            "id": "saramacca-plantations copy",
-            "type": "line",
-            "metadata": {"mapbox:group": "2f8f6af9ccf8c48812d5fd6bcf3ac612"},
-            "source": "composite",
-            "source-layer": "Saramacca_Plantations",
-            "layout": {},
-            "paint": {
-                "line-color": "hsl(82, 55%, 38%)",
-                "line-dasharray": [2, 0],
-                "line-width": 0.5,
-                "line-opacity": {"base": 1, "stops": [[9, 0], [11, 1]]}
-            }
-        },
-        {
-            "id": "saramacca-swamps",
-            "type": "fill",
-            "metadata": {"mapbox:group": "2f8f6af9ccf8c48812d5fd6bcf3ac612"},
-            "source": "composite",
-            "source-layer": "Saramacca_Swamps",
-            "layout": {},
-            "paint": {
-                "fill-color": "hsl(139, 29%, 52%)",
-                "fill-opacity": {"base": 1, "stops": [[9, 0], [11, 1]]}
-            }
-        },
-        {
-            "id": "saramacca-whitesandsavannah",
-            "type": "fill",
-            "metadata": {"mapbox:group": "2f8f6af9ccf8c48812d5fd6bcf3ac612"},
-            "source": "composite",
-            "source-layer": "Saramacca_WhiteSandSavannah",
-            "layout": {},
-            "paint": {
-                "fill-color": "hsl(0, 0%, 100%)",
-                "fill-opacity": {"base": 1, "stops": [[9, 0], [11, 0.6]]}
-            }
-        },
-        {
-            "id": "saramacca-goldmining",
-            "type": "fill",
-            "metadata": {"mapbox:group": "2f8f6af9ccf8c48812d5fd6bcf3ac612"},
-            "source": "composite",
-            "source-layer": "Saramacca_GoldMining",
-            "layout": {},
-            "paint": {
-                "fill-color": "#f96306",
-                "fill-opacity": {"base": 1, "stops": [[9, 0], [11, 0.7]]}
-            }
-        },
-        {
-            "id": "saramacca-goldmining copy",
-            "type": "line",
-            "metadata": {"mapbox:group": "2f8f6af9ccf8c48812d5fd6bcf3ac612"},
-            "source": "composite",
-            "source-layer": "Saramacca_GoldMining",
-            "layout": {},
-            "paint": {
-                "line-color": "hsl(45, 100%, 42%)",
-                "line-width": 0.2,
-                "line-opacity": {"base": 1, "stops": [[9, 0], [11, 1]]}
-            }
-        },
-        {
-            "id": "saramacca-river copy",
-            "type": "line",
-            "metadata": {"mapbox:group": "13858cd23e3db72b0b9b88fae1cced35"},
-            "source": "composite",
-            "source-layer": "Saramacca_River",
-            "layout": {},
-            "paint": {
-                "line-opacity": {"base": 1, "stops": [[7, 0], [9, 1]]},
-                "line-color": "hsl(183, 47%, 66%)",
-                "line-width": {"base": 1, "stops": [[9, 1], [10.5, 2]]}
-            }
-        },
-        {
-            "id": "saramacca-creeks",
-            "type": "line",
-            "metadata": {"mapbox:group": "13858cd23e3db72b0b9b88fae1cced35"},
-            "source": "composite",
-            "source-layer": "Saramacca_creeks",
-            "layout": {
-                "visibility": "visible",
-                "line-join": "round",
-                "line-cap": "round"
-            },
-            "paint": {
-                "line-color": "hsl(183, 47%, 66%)",
-                "line-opacity": {"base": 1, "stops": [[7, 0], [9, 1]]},
-                "line-width": {
-                    "base": 1,
-                    "stops": [[7, 0], [9, 1], [12, 2.5], [14, 4]]
-                }
-            }
-        },
-        {
-            "id": "saramacca-river",
-            "type": "fill",
-            "metadata": {"mapbox:group": "13858cd23e3db72b0b9b88fae1cced35"},
-            "source": "composite",
-            "source-layer": "Saramacca_River",
-            "layout": {},
-            "paint": {
-                "fill-color": {
-                    "base": 1,
-                    "stops": [
-                        [6, "hsl(244, 48%, 55%)"],
-                        [10, "hsl(183, 47%, 66%)"]
-                    ]
-                },
-                "fill-outline-color": {
-                    "base": 1,
-                    "stops": [
-                        [6, "hsl(244, 48%, 55%)"],
-                        [10, "hsl(183, 47%, 66%)"]
-                    ]
-                },
-                "fill-opacity": {"base": 1, "stops": [[3, 0], [4, 1]]}
-            }
-        },
-        {
-            "id": "suriname-roads copy",
-            "type": "line",
-            "metadata": {"mapbox:group": "62532b06c8a1509d7896be27f6639e77"},
-            "source": "composite",
-            "source-layer": "Suriname_Roads",
-            "layout": {"line-cap": "round", "visibility": "none"},
-            "paint": {
-                "line-color": "hsl(0, 0%, 0%)",
-                "line-width": {
-                    "base": 1,
-                    "stops": [[6, 0.75], [8, 1.75], [12, 6]]
-                },
-                "line-opacity": {"base": 1, "stops": [[5, 0], [7, 0], [9, 0.5]]}
-            }
-        },
-        {
-            "id": "saramacca-roads-0384g2",
-            "type": "line",
-            "metadata": {"mapbox:group": "62532b06c8a1509d7896be27f6639e77"},
-            "source": "composite",
-            "source-layer": "Saramacca_Roads",
-            "layout": {},
-            "paint": {
-                "line-color": "#814b4b",
+                "line-color": "#99c7ff",
                 "line-opacity": [
                     "interpolate",
                     ["linear"],
                     ["zoom"],
-                    9,
+                    8,
                     0,
-                    10.5,
+                    8.5,
                     1
                 ],
-                "line-width": [
+                "line-width": ["interpolate", ["linear"], ["zoom"], 0, 1, 22, 1]
+            }
+        },
+        {
+            "id": "xingu-ti-lagos",
+            "type": "fill",
+            "source": "composite",
+            "source-layer": "Xingu_TI_lagos",
+            "layout": {},
+            "paint": {
+                "fill-color": "#99c7ff",
+                "fill-opacity": [
                     "interpolate",
                     ["linear"],
                     ["zoom"],
-                    11,
-                    1,
-                    12,
-                    2
+                    8,
+                    0,
+                    8.5,
+                    1
                 ]
             }
         },
         {
-            "id": "suriname-roads-az76bh",
+            "id": "xingu-ti-drenagem",
             "type": "line",
-            "metadata": {"mapbox:group": "62532b06c8a1509d7896be27f6639e77"},
             "source": "composite",
-            "source-layer": "Suriname_Roads",
-            "layout": {"visibility": "visible"},
-            "paint": {
-                "line-color": "hsl(0, 76%, 68%)",
-                "line-opacity": {"base": 1, "stops": [[7, 0], [8, 1]]},
-                "line-width": {"base": 1, "stops": [[6, 0.5], [8, 1], [12, 3]]}
-            }
-        },
-        {
-            "id": "saramacca-watershed copy",
-            "type": "line",
-            "metadata": {"mapbox:group": "ee9a8381f49c3b765b1b40fb26ebfb5f"},
-            "source": "composite",
-            "source-layer": "Saramacca_Watershed",
+            "source-layer": "Xingu_TI_drenagem",
             "layout": {},
             "paint": {
-                "line-color": "hsl(190, 90%, 25%)",
-                "line-width": {"base": 1, "stops": [[8, 4], [12, 8]]},
-                "line-blur": {"base": 1, "stops": [[10, 4], [11, 6]]},
-                "line-opacity": {"base": 1, "stops": [[7, 0], [8, 1]]}
-            }
-        },
-        {
-            "id": "saramacca-watershed",
-            "type": "line",
-            "metadata": {"mapbox:group": "ee9a8381f49c3b765b1b40fb26ebfb5f"},
-            "source": "composite",
-            "source-layer": "Saramacca_Watershed",
-            "layout": {"line-join": "round"},
-            "paint": {
-                "line-color": "hsl(183, 61%, 23%)",
-                "line-width": {"base": 1, "stops": [[9, 1], [10, 4]]},
-                "line-opacity": {"base": 1, "stops": [[7, 0], [8, 0.6]]}
-            }
-        },
-        {
-            "id": "suriname-nosaramacca-daayg5",
-            "type": "fill",
-            "metadata": {"mapbox:group": "ee9a8381f49c3b765b1b40fb26ebfb5f"},
-            "source": "composite",
-            "source-layer": "Suriname_noSaramacca",
-            "layout": {"visibility": "visible"},
-            "paint": {"fill-opacity": {"base": 1, "stops": [[7, 0], [9, 0.25]]}}
-        },
-        {
-            "id": "saramacca-settlements copy",
-            "type": "circle",
-            "metadata": {"mapbox:group": "ff6ecea996170a19af9d0b4158ce4c35"},
-            "source": "composite",
-            "source-layer": "Saramacca_Settlements",
-            "layout": {},
-            "paint": {
-                "circle-radius": {"base": 1, "stops": [[14, 3], [14.5, 5]]},
-                "circle-opacity": {"base": 1, "stops": [[9, 0], [10, 1]]},
-                "circle-stroke-width": 1,
-                "circle-stroke-opacity": {"base": 1, "stops": [[9, 0], [10, 1]]}
-            }
-        },
-        {
-            "id": "saramacca-rapids-line-6z6s92",
-            "type": "line",
-            "metadata": {"mapbox:group": "ff6ecea996170a19af9d0b4158ce4c35"},
-            "source": "composite",
-            "source-layer": "Saramacca_Rapids_line",
-            "layout": {"visibility": "visible"},
-            "paint": {
-                "line-width": [
-                    "interpolate",
-                    ["linear"],
-                    ["zoom"],
-                    9,
-                    2,
-                    16,
-                    5
-                ],
-                "line-color": "#094586",
+                "line-color": "hsl(213, 100%, 80%)",
                 "line-opacity": [
                     "interpolate",
                     ["linear"],
                     ["zoom"],
-                    9,
+                    8,
                     0,
-                    10.5,
-                    0.7
-                ]
+                    8.5,
+                    1
+                ],
+                "line-width": ["interpolate", ["linear"], ["zoom"], 9, 1, 11, 3]
             }
         },
         {
-            "id": "suriname-settlements-",
-            "type": "circle",
-            "metadata": {"mapbox:group": "ff6ecea996170a19af9d0b4158ce4c35"},
+            "id": "xingu-cuenca-rodoviario",
+            "type": "line",
             "source": "composite",
-            "source-layer": "Suriname_Settlements",
+            "source-layer": "Xingu_cuenca_rodoviario",
             "layout": {},
             "paint": {
-                "circle-radius": {"base": 1, "stops": [[10.5, 3], [11, 5]]},
-                "circle-color": "hsl(0, 0%, 92%)",
-                "circle-opacity": {"base": 1, "stops": [[6.5, 0], [7, 1]]},
-                "circle-stroke-width": 1,
-                "circle-stroke-opacity": {
-                    "base": 1,
-                    "stops": [[6.5, 0], [7, 1]]
-                }
-            }
-        },
-        {
-            "id": "saramacca-villages copy",
-            "type": "symbol",
-            "metadata": {"mapbox:group": "ff6ecea996170a19af9d0b4158ce4c35"},
-            "source": "composite",
-            "source-layer": "Saramacca_MatawaiVillages",
-            "layout": {
-                "icon-image": "matawai_village",
-                "icon-size": [
+                "line-color": "hsl(0, 0%, 100%)",
+                "line-opacity": [
                     "interpolate",
                     ["linear"],
                     ["zoom"],
-                    11,
-                    0.2,
-                    22,
-                    0.3
-                ],
-                "icon-allow-overlap": true
-            },
-            "paint": {
-                "icon-opacity": [
-                    "interpolate",
-                    ["linear"],
-                    ["zoom"],
-                    9.5,
+                    7,
                     0,
-                    10.5,
+                    7.1,
                     1
                 ]
             }
         },
         {
-            "id": "saramacca-fositenkonde copy 1",
-            "type": "symbol",
-            "metadata": {"mapbox:group": "ff6ecea996170a19af9d0b4158ce4c35"},
+            "id": "xingu-ti",
+            "type": "line",
             "source": "composite",
-            "source-layer": "Saramacca_FositenKonde",
-            "layout": {
-                "icon-size": [
-                    "interpolate",
-                    ["linear"],
-                    ["zoom"],
-                    11,
-                    0.2,
-                    22,
-                    0.3
-                ],
-                "icon-image": "matawai_fositen",
-                "icon-ignore-placement": true,
-                "icon-allow-overlap": true
-            },
+            "source-layer": "Xingu_TI",
+            "layout": {},
             "paint": {
-                "icon-opacity": [
+                "line-color": "hsl(18, 0%, 0%)",
+                "line-width": 2,
+                "line-opacity": [
                     "interpolate",
                     ["linear"],
                     ["zoom"],
-                    9.5,
-                    0,
-                    10.5,
-                    1
+                    12,
+                    1,
+                    13,
+                    0
                 ]
             }
         },
         {
-            "id": "saramacca-fositenkonde copy",
-            "type": "circle",
-            "metadata": {"mapbox:group": "ff6ecea996170a19af9d0b4158ce4c35"},
+            "id": "xingu-cuenca",
+            "type": "line",
             "source": "composite",
-            "source-layer": "Saramacca_FositenKonde",
-            "layout": {"visibility": "none"},
-            "paint": {
-                "circle-color": "hsla(270, 80%, 42%, 0.91)",
-                "circle-radius": 3,
-                "circle-opacity": {"base": 1, "stops": [[9, 0], [10.5, 1]]}
-            }
+            "source-layer": "Xingu_cuenca",
+            "layout": {},
+            "paint": {"line-color": "hsl(122, 100%, 0%)", "line-width": 2}
         },
         {
-            "id": "mountain-labels copy",
-            "type": "circle",
-            "metadata": {"mapbox:group": "ff6ecea996170a19af9d0b4158ce4c35"},
+            "id": "xingu-cuenca-sinti",
+            "type": "fill",
             "source": "composite",
-            "source-layer": "Saramacca_Mountains",
-            "layout": {"visibility": "none"},
-            "paint": {
-                "circle-opacity": {"base": 1, "stops": [[11, 0], [11.5, 1]]},
-                "circle-radius": 8,
-                "circle-color": "hsl(31, 57%, 31%)"
-            }
-        },
-        {
-            "id": "mountain-labels",
-            "type": "symbol",
-            "metadata": {"mapbox:group": "ff6ecea996170a19af9d0b4158ce4c35"},
-            "source": "composite",
-            "source-layer": "Saramacca_Mountains",
-            "layout": {
-                "text-field": "{Name}",
-                "text-anchor": "bottom",
-                "text-offset": {
-                    "base": 1,
-                    "stops": [[8, [0, -0.25]], [9, [0, -0.5]], [11, [0, -1]]]
-                },
-                "icon-image": "mountain-15",
-                "icon-size": {"base": 1, "stops": [[9, 0.5], [12, 1]]},
-                "text-font": ["Lato Bold", "Arial Unicode MS Regular"],
-                "text-size": {
-                    "base": 1,
-                    "stops": [[9, 10], [10.5, 14], [12, 20]]
-                },
-                "text-line-height": 1
-            },
-            "paint": {
-                "text-opacity": {"base": 1, "stops": [[10, 0], [10.5, 1]]},
-                "icon-opacity": {
-                    "base": 1,
-                    "stops": [[0, 0], [11, 1], [12, 1]]
-                },
-                "text-color": "#000000",
-                "text-halo-color": "hsl(0, 0%, 92%)",
-                "text-halo-width": 2
-            }
-        },
-        {
-            "id": "rapid-labels copy",
-            "type": "circle",
-            "metadata": {"mapbox:group": "ff6ecea996170a19af9d0b4158ce4c35"},
-            "source": "composite",
-            "source-layer": "Saramacca_Rapids",
-            "layout": {"visibility": "none"},
-            "paint": {
-                "circle-color": "#094586",
-                "circle-radius": 4,
-                "circle-opacity": {"base": 1, "stops": [[11, 0], [12, 0.5]]}
-            }
-        },
-        {
-            "id": "Paramaribo copy",
-            "type": "circle",
-            "metadata": {"mapbox:group": "ff6ecea996170a19af9d0b4158ce4c35"},
-            "source": "composite",
-            "source-layer": "Suriname_POI",
-            "filter": ["==", "Name", "Paramaribo"],
+            "source-layer": "Xingu_cuenca_sinTI",
             "layout": {},
             "paint": {
-                "circle-opacity": {"base": 1, "stops": [[5.5, 0], [6, 1]]},
-                "circle-color": "hsl(0, 0%, 92%)",
+                "fill-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    7,
+                    0,
+                    8.5,
+                    0.3
+                ]
+            }
+        },
+        {
+            "id": "xingu-assentamentos copy",
+            "type": "circle",
+            "source": "composite",
+            "source-layer": "Xingu_assentamentos",
+            "layout": {},
+            "paint": {
+                "circle-color": "hsl(0, 0%, 100%)",
                 "circle-stroke-width": 2,
-                "circle-stroke-opacity": {
-                    "base": 1,
-                    "stops": [[5.5, 0], [6, 1]]
-                }
-            }
-        },
-        {
-            "id": "contours-label",
-            "type": "symbol",
-            "metadata": {"mapbox:group": "71339867bd3310669a17b8293c89e3b8"},
-            "source": "composite",
-            "source-layer": "Saramacca_Contours_50m",
-            "layout": {
-                "text-size": {"base": 1, "stops": [[14, 9], [16, 12]]},
-                "text-max-angle": 25,
-                "text-font": ["Lato Regular", "Arial Unicode MS Regular"],
-                "symbol-placement": "line",
-                "text-padding": 5,
-                "text-rotation-alignment": "map",
-                "text-field": "{Contour} m",
-                "text-letter-spacing": 0.1
-            },
-            "paint": {
-                "text-color": "hsl(135, 27%, 31%)",
-                "text-halo-color": "hsla(0, 0%, 100%, 0)",
-                "text-halo-width": 1
-            }
-        },
-        {
-            "id": "saramacca-river copy 1",
-            "type": "symbol",
-            "metadata": {"mapbox:group": "71339867bd3310669a17b8293c89e3b8"},
-            "source": "composite",
-            "source-layer": "Saramacca_River",
-            "layout": {
-                "text-max-angle": 45,
-                "symbol-spacing": 200,
-                "text-font": ["Crimson BoldItalic", "Arial Unicode MS Regular"],
-                "symbol-placement": "line",
-                "text-offset": [0, 0],
-                "text-rotation-alignment": "map",
-                "text-pitch-alignment": "map",
-                "text-field": "{Name}",
-                "text-letter-spacing": 0.2
-            },
-            "paint": {
-                "text-opacity": {"base": 1, "stops": [[9, 0], [11, 1]]},
-                "text-color": "hsl(211, 88%, 28%)"
-            }
-        },
-        {
-            "id": "saramacca-settlements",
-            "type": "symbol",
-            "metadata": {"mapbox:group": "71339867bd3310669a17b8293c89e3b8"},
-            "source": "composite",
-            "source-layer": "Saramacca_Settlements",
-            "layout": {
-                "text-field": "{Name}",
-                "text-font": ["Lato Regular", "Arial Unicode MS Regular"],
-                "text-size": 12,
-                "icon-image": "circle-11",
-                "text-anchor": "bottom",
-                "text-offset": [0, -0.5],
-                "icon-size": 0.5
-            },
-            "paint": {
-                "text-opacity": {
-                    "base": 1,
-                    "stops": [[0, 0], [9, 0], [10.5, 1]]
-                },
-                "icon-opacity": {"base": 1, "stops": [[0, 0], [11, 0], [12, 1]]}
-            }
-        },
-        {
-            "id": "saramacca-paatis",
-            "type": "symbol",
-            "metadata": {"mapbox:group": "71339867bd3310669a17b8293c89e3b8"},
-            "source": "composite",
-            "source-layer": "Saramacca_Paatis",
-            "layout": {
-                "text-field": "{Name}",
-                "text-anchor": "bottom",
-                "text-offset": [0, 0],
-                "icon-size": 1,
-                "text-size": 13,
-                "text-font": ["Crimson Italic", "Arial Unicode MS Regular"]
-            },
-            "paint": {
-                "text-opacity": {"base": 1, "stops": [[9, 0], [10.5, 1]]},
-                "icon-opacity": 1,
-                "text-color": "hsl(211, 88%, 28%)"
-            }
-        },
-        {
-            "id": "rapid-labels",
-            "type": "symbol",
-            "metadata": {"mapbox:group": "71339867bd3310669a17b8293c89e3b8"},
-            "source": "composite",
-            "source-layer": "Saramacca_Rapids",
-            "layout": {
-                "text-size": 13,
-                "icon-image": "circle-11",
-                "text-font": [
-                    "Crimson Semibold Italic",
-                    "Arial Unicode MS Regular"
+                "circle-radius": 3,
+                "circle-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    6,
+                    0,
+                    7,
+                    1
                 ],
-                "text-offset": [0, -0.5],
-                "icon-size": 0,
-                "text-anchor": "bottom",
-                "text-field": "{Name}",
-                "text-letter-spacing": 0.1
-            },
-            "paint": {
-                "text-opacity": {"base": 1, "stops": [[9, 0], [10.5, 1]]},
-                "icon-opacity": {
-                    "base": 1,
-                    "stops": [[0, 0], [11, 0], [12, 1]]
-                },
-                "text-color": "#094586"
+                "circle-stroke-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    6,
+                    0,
+                    7,
+                    1
+                ]
             }
         },
         {
-            "id": "saramacca-rapids-line-6z6s92 copy",
-            "type": "symbol",
-            "metadata": {"mapbox:group": "71339867bd3310669a17b8293c89e3b8"},
+            "id": "xingu-aldeias",
+            "type": "circle",
+            "metadata": {},
             "source": "composite",
-            "source-layer": "Saramacca_Rapids_line",
+            "source-layer": "Xingu_Aldeias",
+            "layout": {},
+            "paint": {
+                "circle-radius": 3,
+                "circle-stroke-width": 1,
+                "circle-color": "#f349dd",
+                "circle-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    0,
+                    1,
+                    7,
+                    1,
+                    12,
+                    1,
+                    13,
+                    0
+                ],
+                "circle-stroke-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    6,
+                    0,
+                    7,
+                    1,
+                    12,
+                    1,
+                    13,
+                    0
+                ]
+            }
+        },
+        {
+            "id": "ulupuene-buildings",
+            "type": "line",
+            "metadata": {},
+            "source": "composite",
+            "source-layer": "Ulupuene_buildings",
+            "layout": {},
+            "paint": {
+                "line-color": "#292929",
+                "line-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    14,
+                    0,
+                    15,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "ulupuene-features",
+            "type": "circle",
+            "metadata": {},
+            "source": "composite",
+            "source-layer": "Ulupuene_features",
+            "layout": {},
+            "paint": {
+                "circle-radius": 2,
+                "circle-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    12,
+                    0,
+                    13,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "xingu-ti copy",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "Xingu_TI",
             "layout": {
-                "text-field": ["to-string", ["get", "Name"]],
+                "text-field": ["to-string", ["get", "NOME_TI"]],
+                "text-font": ["Open Sans SemiBold", "Arial Unicode MS Regular"],
+                "text-letter-spacing": 0.2,
+                "text-size": 14,
+                "text-transform": "uppercase"
+            },
+            "paint": {"text-halo-width": 1, "text-halo-color": "#ffffff"}
+        },
+        {
+            "id": "xingu-ti-drenagem copy",
+            "type": "symbol",
+            "source": "composite",
+            "source-layer": "Xingu_TI_drenagem",
+            "layout": {
+                "text-field": ["to-string", ["get", "NOME"]],
                 "text-font": [
                     "Crimson SemiboldItalic",
                     "Arial Unicode MS Regular"
                 ],
-                "text-size": 13,
-                "text-letter-spacing": 0.1,
+                "text-letter-spacing": 0.2,
+                "text-pitch-alignment": "map",
                 "symbol-placement": "line",
-                "text-max-angle": 45,
-                "text-offset": [0, 1]
+                "symbol-spacing": 200,
+                "text-rotation-alignment": "map",
+                "text-max-angle": 180
             },
             "paint": {
                 "text-color": "#094586",
@@ -986,283 +336,132 @@
                     "interpolate",
                     ["linear"],
                     ["zoom"],
-                    9,
+                    8,
                     0,
-                    10.5,
+                    8.5,
                     1
                 ]
             }
         },
         {
-            "id": "creek-labels",
+            "id": "xingu-assentamentos",
             "type": "symbol",
-            "metadata": {"mapbox:group": "71339867bd3310669a17b8293c89e3b8"},
             "source": "composite",
-            "source-layer": "Saramacca_creeks",
+            "source-layer": "Xingu_assentamentos",
             "layout": {
-                "text-size": {"base": 1, "stops": [[13, 10], [15, 16]]},
-                "text-max-angle": 90,
-                "symbol-spacing": 200,
-                "text-font": [
-                    "Crimson Semibold Italic",
-                    "Arial Unicode MS Regular"
-                ],
-                "symbol-placement": "line",
-                "text-rotation-alignment": "map",
-                "text-field": "{Name}",
-                "text-letter-spacing": 0.2
-            },
-            "paint": {
-                "text-color": "hsl(211, 88%, 28%)",
-                "text-opacity": {"base": 1, "stops": [[9, 0], [11, 1]]}
-            }
-        },
-        {
-            "id": "saramacca-kamias",
-            "type": "symbol",
-            "metadata": {"mapbox:group": "71339867bd3310669a17b8293c89e3b8"},
-            "source": "composite",
-            "source-layer": "Saramacca_Kamias",
-            "layout": {
-                "text-field": "{Name}",
-                "text-font": ["Open Sans Light"],
-                "text-size": 12,
-                "icon-size": 0.5,
-                "text-anchor": "bottom",
-                "text-offset": [0.5, -0.25],
-                "text-letter-spacing": 0
-            },
-            "paint": {
-                "text-opacity": {
-                    "base": 1,
-                    "stops": [[0, 0], [9, 0], [10.5, 1]]
-                },
-                "icon-opacity": {
-                    "base": 1,
-                    "stops": [[0, 0], [11, 0], [12, 1]]
-                },
-                "text-color": "hsl(0, 0%, 0%)"
-            }
-        },
-        {
-            "id": "saramacca-fositenkonde",
-            "type": "symbol",
-            "metadata": {"mapbox:group": "71339867bd3310669a17b8293c89e3b8"},
-            "source": "composite",
-            "source-layer": "Saramacca_FositenKonde",
-            "layout": {
-                "text-field": "{Name}",
-                "text-anchor": "bottom",
-                "text-offset": [0, -1],
-                "icon-image": "circle-11",
-                "icon-size": 0.5,
-                "text-font": ["Lato Bold", "Arial Unicode MS Regular"],
-                "text-size": 12
-            },
-            "paint": {
-                "text-opacity": {
-                    "base": 1,
-                    "stops": [[0, 0], [9, 0], [10.5, 1]]
-                },
-                "icon-opacity": {
-                    "base": 1,
-                    "stops": [[0, 0], [11, 0], [12, 1]]
-                },
-                "text-color": "hsla(270, 100%, 0%, 0.91)"
-            }
-        },
-        {
-            "id": "saramacca-villages",
-            "type": "symbol",
-            "metadata": {"mapbox:group": "71339867bd3310669a17b8293c89e3b8"},
-            "source": "composite",
-            "source-layer": "Saramacca_MatawaiVillages",
-            "layout": {
-                "text-field": "{NAME}",
-                "text-anchor": "bottom",
-                "text-offset": [0, -1],
-                "icon-image": "circle-11",
-                "icon-size": 0.5,
-                "text-font": ["Open Sans SemiBold", "Arial Unicode MS Regular"],
-                "text-size": {"base": 1, "stops": [[14, 12], [14.5, 14]]}
-            },
-            "paint": {
-                "text-opacity": {"base": 1, "stops": [[1, 0], [9, 0], [10, 1]]},
-                "icon-opacity": {"base": 1, "stops": [[0, 0], [11, 0], [12, 1]]}
-            }
-        },
-        {
-            "id": "CSNR-label",
-            "type": "symbol",
-            "metadata": {"mapbox:group": "ed598a781d972673f94190b55bc67f7a"},
-            "source": "composite",
-            "source-layer": "Suriname_POI",
-            "filter": ["==", "Name", "Central Suriname Nature Reserve"],
-            "layout": {
-                "visibility": "visible",
-                "text-field": "{Name}",
-                "text-font": ["Open Sans SemiBold", "Arial Unicode MS Regular"],
-                "text-size": {"base": 1, "stops": [[8, 12], [9, 16]]},
-                "text-line-height": 1.5,
-                "text-anchor": "bottom"
-            },
-            "paint": {
-                "text-color": "hsl(120, 25%, 32%)",
-                "text-opacity": {"base": 1, "stops": [[6.5, 0], [7, 1]]}
-            }
-        },
-        {
-            "id": "south america label",
-            "type": "symbol",
-            "metadata": {"mapbox:group": "ed598a781d972673f94190b55bc67f7a"},
-            "source": "composite",
-            "source-layer": "country_label",
-            "filter": [
-                "in",
-                "name_en",
-                "Argentina",
-                "Bolivia",
-                "Brazil",
-                "Chile",
-                "Colombia",
-                "Ecuador",
-                "French Guiana",
-                "Guyana",
-                "Paraguay",
-                "Peru",
-                "Suriname",
-                "Uruguay",
-                "Venezuela"
-            ],
-            "layout": {
-                "text-field": "{name_en}",
-                "text-size": {"base": 1, "stops": [[5.5, 13], [7.5, 20]]},
-                "text-allow-overlap": true,
-                "text-font": ["Open Sans SemiBold", "Arial Unicode MS Regular"]
-            },
-            "paint": {
-                "text-opacity": {
-                    "base": 1,
-                    "stops": [[2, 0], [2.5, 1], [7.7, 1], [8.4, 0]]
-                }
-            }
-        },
-        {
-            "id": "Brokopondo-label",
-            "type": "symbol",
-            "metadata": {"mapbox:group": "ed598a781d972673f94190b55bc67f7a"},
-            "source": "composite",
-            "source-layer": "Suriname_POI",
-            "filter": ["==", "Name", "Brokopondo Reservoir"],
-            "layout": {
-                "text-field": "{Name}",
-                "text-font": [
-                    "Crimson SemiboldItalic",
-                    "Arial Unicode MS Regular"
-                ]
-            },
-            "paint": {
-                "text-opacity": {"base": 1, "stops": [[7, 0], [7.5, 1]]},
-                "text-color": "hsl(211, 88%, 28%)",
-                "text-halo-color": "hsl(0, 0%, 100%)",
-                "text-halo-width": 1
-            }
-        },
-        {
-            "id": "suriname-settlements",
-            "type": "symbol",
-            "metadata": {"mapbox:group": "ed598a781d972673f94190b55bc67f7a"},
-            "source": "composite",
-            "source-layer": "Suriname_Settlements",
-            "layout": {
-                "text-size": {
-                    "base": 1,
-                    "stops": [[8, 9], [9, 10], [10, 14], [13, 18]]
-                },
-                "icon-image": "circle-11",
-                "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
-                "visibility": "none",
-                "text-offset": [0.5, -0.25],
-                "icon-size": {
-                    "base": 1,
-                    "stops": [[0, 0], [6, 0.2], [7, 0.3], [10, 0.75]]
-                },
-                "text-anchor": "bottom-left",
-                "text-field": "{Name}",
-                "text-letter-spacing": 0.05
-            },
-            "paint": {
-                "text-opacity": {"base": 1, "stops": [[6, 0], [7, 1], [9, 1]]},
-                "icon-opacity": {
-                    "base": 1,
-                    "stops": [[6, 0], [7, 1], [11, 1], [12, 1]]
-                },
-                "text-color": "hsl(0, 100%, 0%)",
-                "text-halo-width": 0,
-                "text-halo-color": "hsl(0, 0%, 100%)",
-                "text-halo-blur": 0
-            }
-        },
-        {
-            "id": "suriname-settlements- copy",
-            "type": "symbol",
-            "metadata": {"mapbox:group": "ed598a781d972673f94190b55bc67f7a"},
-            "source": "composite",
-            "source-layer": "Suriname_Settlements",
-            "layout": {
-                "text-field": "{Name}",
-                "text-size": {
-                    "base": 1,
-                    "stops": [[0, 9], [9, 10], [10, 14], [13, 18]]
-                },
-                "text-letter-spacing": 0.05,
-                "text-anchor": "bottom",
-                "text-offset": [
+                "text-field": ["to-string", ["get", "NOME"]],
+                "text-size": [
                     "interpolate",
                     ["linear"],
                     ["zoom"],
-                    9,
-                    ["literal", [0, -0.5]],
+                    8,
                     11,
-                    ["literal", [0, -1]]
-                ]
+                    10,
+                    14
+                ],
+                "text-font": ["Open Sans SemiBold", "Arial Unicode MS Regular"],
+                "text-anchor": "bottom-left",
+                "text-justify": "left",
+                "text-offset": [0, -0.5],
+                "text-letter-spacing": 0
             },
             "paint": {
-                "text-color": "hsl(0, 100%, 0%)",
-                "text-opacity": {"base": 1, "stops": [[6.5, 0], [7, 1]]},
-                "text-halo-width": {"base": 1, "stops": [[6.5, 0], [7, 1]]},
-                "text-halo-color": "hsl(0, 0%, 100%)"
+                "text-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    6,
+                    0,
+                    7,
+                    1
+                ]
             }
         },
         {
-            "id": "Paramaribo",
+            "id": "ulupuene-data-2018-01-23",
             "type": "symbol",
-            "metadata": {"mapbox:group": "ed598a781d972673f94190b55bc67f7a"},
             "source": "composite",
-            "source-layer": "Suriname_POI",
-            "filter": ["==", "Name", "Paramaribo"],
+            "source-layer": "ulupuene_data_2018_01_23",
             "layout": {
-                "text-field": "{Name}",
-                "text-anchor": "bottom",
-                "text-offset": [0, -0.5],
-                "text-size": {
-                    "base": 1,
-                    "stops": [[6, 12], [10, 16], [11, 20]]
-                },
-                "text-letter-spacing": 0.05
+                "text-field": ["to-string", ["get", "nome_waura"]],
+                "text-size": 12,
+                "text-font": ["Open Sans Italic", "Arial Unicode MS Regular"]
             },
             "paint": {
-                "text-opacity": {"base": 1, "stops": [[5.5, 0], [6, 1]]},
-                "text-halo-width": 1.5,
-                "text-halo-color": "hsl(0, 0%, 92%)",
-                "text-halo-blur": 0
+                "text-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    8,
+                    0,
+                    8.5,
+                    1
+                ],
+                "text-color": "hsl(0, 0%, 100%)"
+            }
+        },
+        {
+            "id": "ulupuene-features copy",
+            "type": "symbol",
+            "metadata": {},
+            "source": "composite",
+            "source-layer": "Ulupuene_features",
+            "layout": {
+                "text-field": ["to-string", ["get", "nome"]],
+                "text-font": ["Open Sans Bold", "Arial Unicode MS Regular"],
+                "text-size": 10,
+                "text-offset": [0, -1]
+            },
+            "paint": {
+                "text-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    14,
+                    0,
+                    15,
+                    1
+                ],
+                "text-color": "hsl(0, 82%, 55%)"
+            }
+        },
+        {
+            "id": "xingu-aldeias copy",
+            "type": "symbol",
+            "metadata": {},
+            "source": "composite",
+            "source-layer": "Xingu_Aldeias",
+            "layout": {
+                "text-field": ["to-string", ["get", "nome"]],
+                "text-anchor": "bottom-left",
+                "text-offset": [0.2, -0.3],
+                "text-font": ["Open Sans SemiBold", "Arial Unicode MS Regular"],
+                "text-size": 14
+            },
+            "paint": {
+                "text-color": "hsl(308, 100%, 0%)",
+                "text-halo-color": "hsl(0, 0%, 100%)",
+                "text-halo-width": 0,
+                "text-opacity": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    6,
+                    0,
+                    7,
+                    1,
+                    12,
+                    1,
+                    13,
+                    0
+                ]
             }
         }
     ],
-    "created": "2018-03-27T14:37:58.684Z",
-    "id": "cjf9rn5h651212rnzrgn0wf4s",
-    "modified": "2018-09-24T21:05:40.772Z",
+    "created": "2018-11-16T18:42:14.247Z",
+    "id": "cjokdeltg01ba2sn9ss8y2gj5",
+    "modified": "2019-01-23T21:34:13.959Z",
     "owner": "rkemper",
-    "visibility": "public",
+    "visibility": "private",
     "draft": false
 }
