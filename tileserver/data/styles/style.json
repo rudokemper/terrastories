@@ -305,7 +305,7 @@
             "source-layer": "Xingu_TI",
             "layout": {
                 "text-field": ["to-string", ["get", "NOME_TI"]],
-                "text-font": ["Open Sans SemiBold", "Arial Unicode MS Regular"],
+                "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
                 "text-letter-spacing": 0.2,
                 "text-size": 14,
                 "text-transform": "uppercase"
@@ -320,7 +320,7 @@
             "layout": {
                 "text-field": ["to-string", ["get", "NOME"]],
                 "text-font": [
-                    "Crimson SemiboldItalic",
+                    "Open Sans Regular",
                     "Arial Unicode MS Regular"
                 ],
                 "text-letter-spacing": 0.2,
@@ -359,7 +359,7 @@
                     10,
                     14
                 ],
-                "text-font": ["Open Sans SemiBold", "Arial Unicode MS Regular"],
+                "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
                 "text-anchor": "bottom-left",
                 "text-justify": "left",
                 "text-offset": [0, -0.5],
@@ -385,7 +385,7 @@
             "layout": {
                 "text-field": ["to-string", ["get", "nome_waura"]],
                 "text-size": 12,
-                "text-font": ["Open Sans Italic", "Arial Unicode MS Regular"]
+                "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"]
             },
             "paint": {
                 "text-opacity": [
@@ -408,7 +408,7 @@
             "source-layer": "Ulupuene_features",
             "layout": {
                 "text-field": ["to-string", ["get", "nome"]],
-                "text-font": ["Open Sans Bold", "Arial Unicode MS Regular"],
+                "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
                 "text-size": 10,
                 "text-offset": [0, -1]
             },
@@ -435,7 +435,7 @@
                 "text-field": ["to-string", ["get", "nome"]],
                 "text-anchor": "bottom-left",
                 "text-offset": [0.2, -0.3],
-                "text-font": ["Open Sans SemiBold", "Arial Unicode MS Regular"],
+                "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
                 "text-size": 14
             },
             "paint": {
