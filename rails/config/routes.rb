@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     root to: "users#index"
   end
 
-  scope "(:locale)", locale: /en|mat/ do
+  scope "(:locale)", locale: /pt|en/ do
     resources :places do
       collection do
         post :import_csv

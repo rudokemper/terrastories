@@ -22,14 +22,14 @@ export default class Map extends Component {
   componentDidMount() {
     // @NOTE: MAKE SURE ARRAY IS [LONGITUDE, LATITUDE]
     const bounds = [
-      [-60.80409032, 0.3332811], //southwest
-      [-52.41053563, 6.90258397] //northeast
+      [-58.103795, -9.293554], //southwest
+      [-50.242182, -0.841550] //northeast
     ]
 
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: this.props.mapboxStyle,
-      center: [-55.63, 4.78],
+      center: [-53.470567, -12.470138],
       zoom: 7.6,
       maxBounds: bounds
     });
